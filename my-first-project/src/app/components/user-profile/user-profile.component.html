@@ -1,0 +1,35 @@
+<!-- <h1>This is User Profile</h1>
+<h4>Name:{{name.toUpperCase()}}</h4>
+<h4>Status:{{status}}</h4>
+<h4>Salary:{{salary}}</h4>
+<button [disabled]="isBtnDisabled" (click)="onBtnClk()">Click Me</button>
+<h1>{{inputValue}}</h1> -->
+
+
+<!-- <input type="text" [value]="inputValue" (input)="onChange($event)"> -->
+<!-- <input type="text" [(ngModel)]="inputValue"> -->
+
+
+<!-- <div *ngFor="let user of array"> -->
+    <!-- @for(user of array;track user.name)
+    {
+        @if(user.salary > 10000)
+        {
+            <h1>Name:{{user.name}} ------SingleStatus:{{user.isSingle}} ------Job:{{user.Job}} --- Salary:{{user.salary}} </h1>
+        }
+        @else
+        {
+            <h1>Name:{{user.name}} ------SingleStatus:{{user.isSingle}} ------Job:{{user.Job}} --- Salary:hidden </h1>
+        }
+        
+    } -->
+
+    <!-- using directive -->
+   <!-- <h2 *ngIf="user.salary > 10000; else elseBlock"> Name:{{user.name}}---isSingle:{{user.isSingle}}---Job:{{user.Job}}----salary: {{user.salary}}</h2>
+
+    <ng-template #elseBlock>
+        <h2> Name:{{user.name}}---isSingle:{{user.isSingle}}---Job:{{user.Job}}---salary:{{user.salary}}</h2>
+    </ng-template>
+</div> -->
+
+<h1> Name: {{aliasname}}  status:{{isSingle}}  salary: {{salary}}</h1>
