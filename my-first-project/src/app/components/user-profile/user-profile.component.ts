@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { booleanAttribute, Component, Input, numberAttribute } from '@angular/core';
+import { Component,numberAttribute, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../../models/user';
+// import { EventEmitter } from 'eventemitter3';
 
 
 function formatName(value:string){
@@ -10,7 +12,7 @@ function formatName(value:string){
 @Component({
   selector: 'app-user-profile',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
 })
@@ -37,7 +39,16 @@ export class UserProfileComponent {
     // }
   
 
-    @Input({alias:"name", transform:formatName}) aliasname="";
+    @Input({alias:"name"}) aliasname="";
     @Input() isSingle=""
     @Input({transform:numberAttribute}) salary?:number;
+    
+
+    //passing child to parent data
+    @Output() emitter= new EventEmitter<User>()
+    sendData()
+    {
+      this.emitter.emit({name:this.aliasname,newSalary:10000})
+    }
 }
+

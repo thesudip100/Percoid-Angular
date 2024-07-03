@@ -1,2 +1,7 @@
 <!-- <app-user-profile name="sudip" isSingle="true"  salary="10000"></app-user-profile> -->
-<app-user-profile *ngFor="let u of array" [name]="u.name" [isSingle]="u.isSingle" [salary]="u.salary"></app-user-profile>
+<app-user-profile *ngFor="let u of array" 
+[name]="u.name" 
+[isSingle]="u.isSingle" 
+[salary]="u.salary"
+(emitter)="receivedData($event)">
+</app-user-profile> 
