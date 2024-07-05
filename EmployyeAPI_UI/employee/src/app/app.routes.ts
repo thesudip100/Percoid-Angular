@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AddEmployeeComponent } from './features/category/add-employee/add-employee.component';
-import { CategoryListComponent } from './features/category/category-list/category-list.component';
+import { CategoryListComponent } from "./features/category/category-list/CategoryListComponent";
 
 export const routes: Routes = [
     {

@@ -13,4 +13,8 @@ export class EmployeeService {
   addEmployee(model:AddEmployeeRequest):Observable<void>{
     return this.http.post<void>('https://localhost:7188/api/CustomerAPI/AddCustomer',model);
   }
+
+  getAllEmployees(): Observable<AddEmployeeRequest[]> {
+    return this.http.get<AddEmployeeRequest[]>('https://localhost:7188/api/CustomerAPI/GetAllCustomer');
+  }
 }
