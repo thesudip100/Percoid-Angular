@@ -1,5 +1,3 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,16 +5,16 @@ import { AddEmployeeRequest } from '../models/add-employee-request.model';
 import { EmployeeService } from '../services/employee.service';
 
 @Component({
-  selector: 'app-add-employee',
+  selector: 'app-update-employee',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './add-employee.component.html',
-  styleUrl: './add-employee.component.css'
+  templateUrl: './update-employee.component.html',
+  styleUrl: './update-employee.component.css'
 })
-export class AddEmployeeComponent {
+export class UpdateEmployeeComponent {
   model: AddEmployeeRequest;
 
-  constructor(private employeeservice:EmployeeService, private router:Router){
+  constructor(private employeeservice:EmployeeService, private router: Router){
     this.model={
       id:NaN,
       name:'',
@@ -26,15 +24,13 @@ export class AddEmployeeComponent {
       
     }
   }
-
   onFormSubmit()
   {
-      this.employeeservice.addEmployee(this.model)
+      this.employeeservice.updateEmployee(this.model)
       .subscribe({
         next:(response)=>{
-          console.log("This was successful");
+          console.log("Update was successful");
           this.router.navigate(['/admin/employees']);
-
         }
       })
   }

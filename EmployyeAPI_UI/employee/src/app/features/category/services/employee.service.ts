@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, model } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddEmployeeRequest } from '../models/add-employee-request.model';
 
@@ -16,5 +16,13 @@ export class EmployeeService {
 
   getAllEmployees(): Observable<AddEmployeeRequest[]> {
     return this.http.get<AddEmployeeRequest[]>('https://localhost:7188/api/CustomerAPI/GetAllCustomer');
+  }
+
+  updateEmployee(model:AddEmployeeRequest):Observable<AddEmployeeRequest> {
+    return this.http.post<AddEmployeeRequest>('https://localhost:7188/api/CustomerAPI/UpdateEmployee',model);
+  }
+
+  deleteEmployee(id:number):Observable<AddEmployeeRequest[]>{
+    return this.http.get<AddEmployeeRequest[]>(`https://localhost:7188/api/CustomerAPI/DeleteEmployee/${id}`)
   }
 }

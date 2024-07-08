@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AddEmployeeRequest } from '../models/add-employee-request.model';
 import { EmployeeService } from '../services/employee.service';
 
@@ -16,6 +16,7 @@ import { EmployeeService } from '../services/employee.service';
 export class CategoryListComponent {
 
   employees: AddEmployeeRequest[] = [];
+  
 
   constructor(private employeeService: EmployeeService) { 
     this.onload();
@@ -26,4 +27,15 @@ export class CategoryListComponent {
         this.employees = data;
       }});
   }
-}
+
+  onDelete(id: number):void{
+    this.employeeService.deleteEmployee(id)
+    .subscribe({
+      next:(response)=>{
+        console.log("Delete was successful");
+        this.onload();
+      }
+    })
+    }
+  }
+
