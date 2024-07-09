@@ -25,4 +25,8 @@ export class EmployeeService {
   deleteEmployee(id:number):Observable<AddEmployeeRequest[]>{
     return this.http.get<AddEmployeeRequest[]>(`https://localhost:7188/api/CustomerAPI/DeleteEmployee/${id}`)
   }
+
+  getEmployeeById(id: number): Observable<AddEmployeeRequest> {
+    return this.http.get<AddEmployeeRequest>(`https://localhost:7188/api/CustomerAPI/GetSingleCustomer/${id}`);
+  }
 }

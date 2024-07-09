@@ -14,7 +14,7 @@ export const routes: Routes = [
         component:AddEmployeeComponent
     },
     {
-        path:'admin/employees/update',
+        path:'admin/employees/update/:id',
         component:UpdateEmployeeComponent
     },
 ];

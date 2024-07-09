@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddEmployeeRequest } from '../models/add-employee-request.model';
 import { EmployeeService } from '../services/employee.service';
 
@@ -11,17 +11,29 @@ import { EmployeeService } from '../services/employee.service';
   templateUrl: './update-employee.component.html',
   styleUrl: './update-employee.component.css'
 })
-export class UpdateEmployeeComponent {
+export class UpdateEmployeeComponent{
   model: AddEmployeeRequest;
 
-  constructor(private employeeservice:EmployeeService, private router: Router){
+  constructor(private employeeservice:EmployeeService, private router: Router, private route: ActivatedRoute,){
     this.model={
       id:NaN,
       name:'',
       email:'',
       phone:'',
       address:'',
-      
+    }
+
+    this.onload()
+  }
+
+  onload(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.employeeservice.getEmployeeById(Number(id)).subscribe({
+        next: (data) => {
+          this.model= data;
+        }
+      });
     }
   }
   onFormSubmit()

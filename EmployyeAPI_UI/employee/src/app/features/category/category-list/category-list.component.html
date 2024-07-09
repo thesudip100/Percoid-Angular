@@ -28,7 +28,7 @@
                     <td>{{ employee.phone }}</td>
                     <td>{{ employee.address }}</td>
                     <td>
-                      <a class="btn btn-primary" [routerLink]="['/admin/employees/update']">Update</a>
+                      <a class="btn btn-primary" [routerLink]="['/admin/employees/update', employee.id]">Update</a>
                   </td>
                   <td>
                       <button class="btn btn-danger" (click)="onDelete(employee.id)">Delete</button>
