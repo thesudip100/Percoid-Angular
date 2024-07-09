@@ -17,6 +17,8 @@
             <th scope="col">Address</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col"></th>
+
           </tr>
         </thead>
         <tbody>
@@ -29,10 +31,15 @@
                     <td>{{ employee.address }}</td>
                     <td>
                       <a class="btn btn-primary" [routerLink]="['/admin/employees/update', employee.id]">Update</a>
-                  </td>
+                    </td>
                   <td>
                       <button class="btn btn-danger" (click)="onDelete(employee.id)">Delete</button>
                   </td>
+
+                  <td>
+                    <a class="btn btn-info" [routerLink]="['/admin/employees/details', employee.id]">Details</a>
+                  </td>
+
                 </tr>
         </tbody>
       </table>
